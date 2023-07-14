@@ -33,32 +33,39 @@ class MyApp2 extends StatelessWidget {
             ),
           ),
         ),
-        body: Column(
+        /* body: Stack(
           children: [
             Container(
+              color: Colors.red,
+            ),
+            Container(
+              color: Colors.green,
+              width: 300,
+              height: 300,
+            ),
+            Container(
               color: Colors.yellow,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisSize: MainAxisSize.max,
-                children: [
-                  Container(
-                    color: Colors.red,
-                    width: 50,
-                    height: 100,
-                  ),
-                  Container(
-                    color: Colors.green,
-                    width: 50,
-                    height: 50,
-                  ),
-                  Container(
-                    color: Colors.blue,
-                    width: 50,
-                    height: 150,
-                  ),
-                ],
-              ),
+              width: 150,
+              height: 150,
+            ),
+          ],
+        ), */
+        body: IndexedStack(
+          //인덱스 번호 설정
+          index: 1,
+          children: [
+            Container(
+              color: Colors.red,
+            ),
+            Container(
+              color: Colors.green,
+              width: 300,
+              height: 300,
+            ),
+            Container(
+              color: Colors.yellow,
+              width: 150,
+              height: 150,
             ),
           ],
         ),
