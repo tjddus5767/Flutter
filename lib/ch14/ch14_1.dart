@@ -14,14 +14,25 @@ class ch14_1 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
     return MaterialApp(
       initialRoute: '/one',
       routes: {
         '/one': (context) => const OneScreen(),
         '/two': (context) => const SecondScreen(),
         '/three': (context) => const ThirdScreen(),
-        '/four': (context) => const FourthScreen(),
+        //'/four': (context) => const FourthScreen(),
+      },
+      onGenerateRoute: (settings) {
+        if (settings.name == '/three') {
+          return MaterialPageRoute(
+            builder: (context) => const ThirdScreen(),
+            settings: settings,
+          );
+        } else if (settings.name == '/four') {
+          return MaterialPageRoute(
+              builder: (context) => const FourthScreen(), settings: settings);
+        }
+        return null;
       },
     );
   }

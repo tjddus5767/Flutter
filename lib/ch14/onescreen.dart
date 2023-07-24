@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'user.dart';
 
 class OneScreen extends StatelessWidget {
   const OneScreen({super.key});
@@ -28,8 +29,14 @@ class OneScreen extends StatelessWidget {
                 ),
               ),
               ElevatedButton(
-                onPressed: () {
-                  Navigator.pushNamed(context, '/two');
+                onPressed: () async {
+                  final result =
+                      await Navigator.pushNamed(context, '/two', arguments: {
+                    "arg1": 1,
+                    "arg2": "hello",
+                    "arg3": User('kkang', 'seoul'),
+                  });
+                  print('result: ${(result as User).name}');
                 },
                 child: const Text(
                   'Go Second',
