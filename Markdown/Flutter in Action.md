@@ -200,3 +200,173 @@ _counter++;
 ---
 
 ### 3.2.3 setState
+- **setState**는 **build**와 **createState** 다음으로 알아야 할 메서드다.
+- "데이터가 변경되었음"을 알린다
+- 콜백 안의 코드를 실행시켜준다
+- 비동기 코드를 실행할 수 없다.
+
+---
+
+### 3.2.4 initState
+- 위젯이 생성될때 처음으로 호출되는 메서드 이다.(클래스 생성자 다음)
+- initState는 오직 한번 만 호출 된다. 또한 반드시 super.initState()를 호출해야 한다.
+- initState()를 HTTP request를 관리하고, 위젯의 데이터를 변경할 수 있는 stream 구독, 알림변경 또는 기타 다른 object를 핸들링하는데 사용
+
+---
+
+### 3.3 BuildContext
+- 위젯 트리 내에서 해당 위젯의 위치를 카리킨다.
+- 위치에 대한 정보를 context에 넣어서 return
+
+---
+
+### 3.4 Enhancing the counter app with the most important widgets
+- Container
+- Row
+- Column
+- Image
+- Text
+- Icon
+- RaisedButton
+- Scaffold
+- AppBar
+
+
+### 3.4.1 RaisedButton
+
+- Flutter에서는 상호작용을 onPressed와 같은 콜백을 통해 처리한다. 추가적으로 onTapped, onHorizontalDrag이 있다.
+
+
+---
+
+### 3.5 Favor composition in Flutter (over inheritance)
+
+
+### 3.5.2 An example of composition in Flutter
+
+
+
+###  3.6 Intro to layout in Flutter
+
+### 3.6.1 Row and Column
+- **column**: 모든 자식 위젯들을 세로롤 배치한다
+    - 위 아래로 위젯을 설정
+- **row**: 모든 자식 위젯들을 가로로 배치한다.
+    - 양 옆으로 위젯을 설정
+- **alignment**: column의 경우 자식 위젯들을 수직 방향으로 어떻게 정렬할지 설정 가능, 예를 들어 상단, 중단, 하단을 결정할 수 있다.
+
+```dart
+body: Center(
+child: Column(
+mainAxisAlignment: MainAxisAlignment.center,
+children: <Widget>[
+Text('You have pushed the button this many times:'),
+Text(
+'$_counter',
+style: Theme.of(context).textTheme.display1,
+),
+RaisedButton(
+child: Text("Decrement Counter"),
+onPressed: _decrementCounter,
+```
+
+- 이 경우에는 위젯을 세로 기준 가운데에 설정한다는 것이다.
+- alignment를 따로 설정해주지 않으면 기본적으로 `MainAxisAlignment.start`로 설정된다.
+
+### 3.6.2 Layout constraints in Flutter
+
+- 여러분은 언제가는 Row, Column 및 다른 레이아웃 위젯을 사용할 때 오류가 발생할 수 있습니다. 이 오류를 해결하기 위해서는 제약이 어떻게 동작하는지 알아야 한다.
+제약이 위젯에게 얼마나 많은 공간을 차지할 수있게 해주는지 알려주며, 이 제약을 기반으로 크기와 위치를 결정한다.
+> 개인적으로는 위젯들이 왜 그 장소로 이동하는지를 분석하고 연습해보면 좋을 것 같다.
+
+---
+
+### 3.6.3 RenderObject
+
+
+### 3.6.4 RenderObject and constraints
+
+
+### 3.6.6 Multi-child widgets
+
+```dart
+Row(
+children: <Widget>[
+RaisedButton(
+color: Colors.red,
+child: Text(
+"Decrement",
+style: TextStyle(color: Colors.white),
+),
+onPressed: _decrementCounter,
+),
+RaisedButton(  //새로운 위젯
+color: Colors.green,
+child: Text(
+"Increment",
+style: TextStyle(color: Colors.white),
+),
+onPressed: _incrementCounter,
+),
+],
+),
+```
+
+- 두 개의 버튼이 있으며 둘 다 왼쪽에 정렬되어 있고, 좀 더 보기 좋게 정렬(alignment)를 추가할 수 있다.
+
+```dart
+Row(
+mainAxisAlignment: MainAxisAlignment.spaceAround,
+children: <Widget>[
+RaisedButton(
+color
+```
+
+- **spaceAround**: 자식들 주위에 여백을 통일하게 만들어서 자식들을 정렬한다.
+
+![Alt text](image-4.png)
+- 이 사진을 보면 어떤 방식으로 동작하는지 알 수 있다.
+
+---
+
+### 3.6.7 Icons and the FloatingActionButton
+- Flutter는 Material Design 아이콘이 내장되어 있고 상수로 사용 가능하다.
+
+![Alt text](image-5.png)
+- 대체적으로 많이 사용하는 아이콘들이다
+
+### 3.6.8 Images
+
+> 이미지를 추가하기 위해서는 그 이미지가 로컬로 저장되어 있는지 아니면 인터넷에서 가져오는지를 알아야 한다.
+
+- 만약 인터넷에 있다면 **Image.network** 생성자 사용
+`Image.network("https://funfreegifs.com/panda-bear")`
+
+- 만약 로컬에 있다면 **Image.asset** 사용
+    - pubspec.yaml 파일에서 다음 코드 추가
+    ```dart
+    flutter:
+        assets:
+            - lib/flutter_logo_1080.png
+
+    ```
+    - 앱에 필요한 이미지들은 spec 파일의 assets 섹션에 나열되어야 한다.
+    - 이 경우 lib 폴더에 사진이 들어있는 것이다.
+
+```dart
+children: <Widget>[
+Image.asset(
+'flutter_logo_1080.png',
+width: 100.0,
+),
+Text(
+'You have pushed the button this many times:',
+),
+
+```
+
+main.dart파일로 돌아와서 다음과 같이 코드를 작성한다.
+
+---
+
+### 3.6.9 Container Widget
