@@ -96,6 +96,7 @@ return new RaisedButton(
 - class RedButton extends StatelessWidget: 위젯/클래스 이름은 RedButton이며 StatelessWidget을 상속받는다.
 - Widget build(BuildContext context): 위젯은 build 메서드를 가진다. **BuildContext**를 유일한 인자로 받는다.
     - **BuildContext**는 위젯 트리에서 현재 위치를 타나태는 객체이다. 위젯이 어디에 위치하는지, 어떤 부모와 자식 위젯을 갖는지 등의 정보를 제공한다.
+    **It’s tied to the idea of BuildContext.**
     - build 메서드는 위젯이 화면에 어떻게 보일지 정의, 다른 위젯들을 조합하여 UI 구성
 
 ```dart
@@ -184,7 +185,7 @@ Widget build(BuildContext context) {
 - StatefulWidget은 **createState** 메서드를 가지며 이 메서드는 State 객체를 반환한다.
 - 상태 클래스는 Flutter의 State 객체를 상속받는다.
 - 상태 클레스에 화면에 그려질 코드 작성
-- Dart에서 _로 시작하는 클래스는 해당 파일 내에서만 사용 가능하다
+- Dart에서 **_로 시작하는 클래스는 해당 파일 내에서만 사용 가능하다**
 
 
 ```dart
@@ -240,14 +241,26 @@ _counter++;
 ---
 
 ### 3.5 Favor composition in Flutter (over inheritance)
+- **is a**: 무엇인지
+- **has a**: 무엇을 하는지
 
+---
 
-### 3.5.2 An example of composition in Flutter
+### 3.5.1 What is composition?
+- 추상클래스라고 생각하면 편하다
+    - Alien = HorseRider + SpaceShipFlyer + EarthInvader
+    - Rancher = HorseRider + CattleHerder
+    - Cowboy = HorseRider + OutlawChaser + AlienFighter
+    - 클래스 안에서 기능들을 만드는 것이 아니라 기능들은 이미 위에서 만들어 놓고 객체마다 필요한 기능들을 조합해서 쓴다.
 
+---
 
 
 ###  3.6 Intro to layout in Flutter
 
+- Flutter는 하나의 특정한 **레이아웃 시스템**을 사용하지 않는다
+    - Flutter는 상황에 따라 여러 시스템을 조합해 필요한 레이아웃을 만들 수 있다.
+---
 ### 3.6.1 Row and Column
 - **column**: 모든 자식 위젯들을 세로롤 배치한다
     - 위 아래로 위젯을 설정
@@ -282,11 +295,27 @@ onPressed: _decrementCounter,
 ---
 
 ### 3.6.3 RenderObject
-
-
+- 내부에서 사용되기 때문에 개발자가 직접 사용할 일은 드물다.
+- 위젯이 renderobject를 만들고 renderobject가 화면을 **paint method(디자인), performLayoutMethod(위치 설정)**
+    - **performLayoutMethod**: renderobject를 위해서 레이아웃을 계산한다
+    - **paint method**: 어떠한 영역을 칠할 때 사용하는 method
+---
 ### 3.6.4 RenderObject and constraints
+- **RenderObject**는 프레임워크에 위젯의 실제 물리적 크기와 위치를 알려주는 역할을 한다.
+    - 제약 조건
+        - **minWidth**
+        - **minHeight**
+        - **maxWidth**
+        - **maxHeight**
+
+- **RenderBox**: 직교 좌표계를 사용하여 위젯의 크기를 계산한다.
+   - 가능한 많은 공간을 차지하려는 것, 예를 들어 **Center** 위젯에서 사용하는 박스와 같은 경우
+    - 자식과 동일한 크기를 가지려는 것, 예를 들어 **Opacity** 위젯에서 사용하는 박스와 같은 경우
+    - 특정 크기를 가지려는 것, 예를 들어 **Image** 위젯에서 사용하는 박스와 같은 경우
 
 
+### 3.6.5 RenderBoxes and layout errors
+- ex) 무한한 크기가 아니니 크기 제약을 잘 설정해야 한다.
 ### 3.6.6 Multi-child widgets
 
 ```dart
@@ -313,7 +342,7 @@ onPressed: _incrementCounter,
 ```
 
 - 두 개의 버튼이 있으며 둘 다 왼쪽에 정렬되어 있고, 좀 더 보기 좋게 정렬(alignment)를 추가할 수 있다.
-
+- 현재는 **Raisedbutton** -> **Elevatedbutton**
 ```dart
 Row(
 mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -370,3 +399,61 @@ main.dart파일로 돌아와서 다음과 같이 코드를 작성한다.
 ---
 
 ### 3.6.9 Container Widget
+
+- **Container**를 사용하면 위젯을 깔끔하게 만들 수 있다.
+- **Container**는 기본적으로 크기를 최대화하려고 한다.
+
+```dart
+Container({
+Key key,
+this.alignment,
+this.padding,
+Color color,
+Decoration decoration,
+this.foregroundDecoration,
+double width,
+double height,
+BoxConstraints constraints,
+this.margin,
+this.transform,
+this.child,
+})
+```
+> 다음은 Container가 가질 수 있는 속성이다. 이것들을 제외하고도 더 있을 수 있다.
+
+```dart
+Container(
+margin: EdgeInsets.only(bottom: 100.0),
+padding: EdgeInsets.all(8.0),
+decoration: BoxDecoration(
+color: Colors.blue.withOpacity(0.25),
+borderRadius: BorderRadius.circular(4.0),
+),
+child: Image.asset(
+'flutter_logo_1080.png',
+width: 100.0,
+),
+),
+)
+```
+
+> 다음은 container를 이용해서 이미지를 넣은 것이다.
+
+
+---
+
+### 3.7 The element tree
+- 개발자가 직접적으로 사용하는 경우는 거의 없다
+- 앱 실행 시 widget과 element는 동시에 생성되는 면에서 공통점이 있지만,widget은 rebuild될 때 **삭제되고 다시 빌드**되지만, element는 삭제되지 않고 **reference**를 저장하고 있는다
+
+### 3.7.4 Widget keys
+
+- **키**를 사용하면 같은 유형의 위젯이더라도 구분할 수 있다.
+    - 여러 자식을 갖는 **Row**나 **Column**에서 유용하게 사용
+- 키의 **형식과 사용 방법**
+    - **ValueKey, ObjectKey, UniqueKey, GlobalKey, PageStorageKey**
+- **PageStorageKey**는 **ValueKey<T>** 를 상속받는다. 
+- **ValueKey<T>는 LocalKey**를 상속받는다.
+- **LocalKey는 Key**를 상속받는다. 
+- **ObjectKey와 UniqueKey**는 **LocalKey**를 구현한다. 
+- **GlobalKey는 Key**를 상속받는다.
