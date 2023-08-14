@@ -21,7 +21,6 @@ class MyAppState extends State<Watcha> {
       home: Scaffold(
         backgroundColor: Colors.black,
         body: SingleChildScrollView(
-          // SingleChildScrollView 추가
           child: Column(
             children: [
               Stack(
@@ -83,9 +82,10 @@ class MyAppState extends State<Watcha> {
                         },
                         child: Container(
                           padding: const EdgeInsets.all(8),
+                          width: MediaQuery.of(context).size.width, // 가로 크기 설정
                           decoration: BoxDecoration(
-                            color: Colors.black.withOpacity(0.5),
-                            borderRadius: BorderRadius.circular(8),
+                            color: Colors.black.withOpacity(0.7),
+                            borderRadius: BorderRadius.circular(12),
                           ),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.center,
@@ -96,7 +96,7 @@ class MyAppState extends State<Watcha> {
                                 height: 30,
                               ),
                               const Text(
-                                '왓챠플레이로 로그인하기',
+                                '왓챠플레이 로 로그인하기',
                                 style: TextStyle(
                                   fontWeight: FontWeight.bold,
                                   fontSize: 20,
