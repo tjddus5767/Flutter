@@ -74,40 +74,43 @@ class MyAppState extends State<Watcha> {
                   ),
                   Positioned(
                     bottom: 60,
-                    width: MediaQuery.of(context).size.width,
-                    child: Center(
-                      child: GestureDetector(
-                        onTap: () {
+                    right: 80,
+                    child: OutlinedButton(
+                        onPressed: () {
                           Navigator.pushNamed(context, '/ngv');
                         },
-                        child: Container(
-                          padding: const EdgeInsets.all(8),
-                          width: MediaQuery.of(context).size.width, // 가로 크기 설정
-                          decoration: BoxDecoration(
-                            color: Colors.black.withOpacity(0.7),
-                            borderRadius: BorderRadius.circular(12),
-                          ),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Image.asset(
-                                'images/왓챠 로고.png',
-                                width: 70,
-                                height: 30,
+                        style: OutlinedButton.styleFrom(
+                          backgroundColor: Colors.black.withOpacity(0.7),
+                          minimumSize: const Size(200, 50),
+                          side:
+                              BorderSide(color: Colors.white.withOpacity(0.5)),
+                          shape: const RoundedRectangleBorder(
+                            borderRadius: BorderRadius.all(
+                              Radius.circular(
+                                10,
                               ),
-                              const Text(
-                                '왓챠플레이 로 로그인하기',
-                                style: TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 20,
-                                  color: Colors.white,
-                                ),
-                              ),
-                            ],
+                            ),
                           ),
                         ),
-                      ),
-                    ),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            Image.asset(
+                              'images/왓챠 로고.png',
+                              width: 70,
+                              height: 30,
+                            ),
+                            const Text(
+                              '왓챠플레이로 로그인하기',
+                              style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                fontSize: 20,
+                                color: Colors.white,
+                              ),
+                            ),
+                          ],
+                        )),
                   ),
                   DecoratedBox(
                     decoration: BoxDecoration(

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:toonflix/onezero/navigationbar.dart';
 import 'package:toonflix/onezero/watcha.dart';
+import 'Intro.dart';
 
 void main() {
   runApp(const origin());
@@ -12,8 +13,9 @@ class origin extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      initialRoute: '/watcha',
+      initialRoute: '/Intro',
       routes: {
+        '/Intro': (context) => const SplashScreen(),
         '/watcha': (context) => const Watcha(),
         '/ngv': (context) => const Ngb(),
       },
