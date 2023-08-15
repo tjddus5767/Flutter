@@ -13,10 +13,6 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'My App',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
       home: const SplashScreen(),
       routes: {
         '/watcha': (context) => const Watcha(), // Watcha 페이지로 이동하는 route 설정
@@ -37,7 +33,7 @@ class _SplashScreenState extends State<SplashScreen> {
   void initState() {
     super.initState();
     Timer(
-      const Duration(seconds: 3), // 2초 동안 인트로 화면 표시
+      const Duration(seconds: 10), // 1초 동안 인트로 화면 표시
       () =>
           Navigator.pushReplacementNamed(context, '/watcha'), // Watcha 페이지로 이동
     );
