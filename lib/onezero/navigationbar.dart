@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:toonflix/onezero/screen.dart';
+import 'package:toonflix/onezero/title.dart';
 
 void main() {
   runApp(const Ngb());
@@ -39,88 +39,79 @@ class NgbState extends State<Ngb> with SingleTickerProviderStateMixin {
             Tab(
               text: '영화',
             ),
-            Tab(text: 'TV'),
-            Tab(text: '책'),
-            Tab(text: '웹툰'),
+            Tab(
+              text: 'TV',
+            ),
+            Tab(
+              text: '책',
+            ),
+            Tab(
+              text: '웹툰',
+            ),
           ],
         ),
       ),
       body: TabBarView(
         controller: controller,
         children: <Widget>[
-          const Padding(
-            padding: EdgeInsets.only(left: 20, top: 10),
+          const SingleChildScrollView(
+            scrollDirection: Axis.vertical,
             child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(
-                  '박스오피스 순위',
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 25),
+                ImageWidget(
+                  category: '박스오피스 순위',
+                  imagePath: 'images/오펜하이머.jpg',
+                  imagePath2: 'images/콘크.jpg',
+                  imagePath3: 'images/달짝지근.jpg',
+                  imagePath4: 'images/밀수.jpg',
+                  imagePath5: 'images/엘리멘탈.jpg',
+                  name: '오펜하이머',
+                  name2: '콘크리트 유토피아',
+                  name3: '달짝지근해: 7510',
+                  name4: '밀수',
+                  name5: '엘리멘탈',
+                  grade: '평균★4.1',
+                  grade2: '평균★3.6',
+                  grade3: '평균★3.0',
+                  grade4: '평균★3.3',
+                  grade5: '평균★3.9',
                 ),
-                SingleChildScrollView(
-                  scrollDirection: Axis.horizontal,
-                  child: Row(
-                    children: [
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          ImageWidget(
-                            imagePath: 'images/오펜하이머.jpg',
-                            name: '오펜하이머',
-                          ),
-                        ],
-                      ),
-                      SizedBox(
-                        width: 13,
-                      ),
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          ImageWidget(
-                            imagePath: 'images/콘크.jpg',
-                            name: '콘크리트 유토피아',
-                          ),
-                        ],
-                      ),
-                      SizedBox(
-                        width: 13,
-                      ),
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          ImageWidget(
-                            imagePath: 'images/달짝지근.jpg',
-                            name: '달짝지근해: 7510',
-                          ),
-                        ],
-                      ),
-                      SizedBox(
-                        width: 13,
-                      ),
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          ImageWidget(
-                            imagePath: 'images/밀수.jpg',
-                            name: '밀수',
-                          ),
-                        ],
-                      ),
-                      SizedBox(
-                        width: 13,
-                      ),
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          ImageWidget(
-                            imagePath: 'images/엘리멘탈.jpg',
-                            name: '엘리멘탈',
-                          ),
-                        ],
-                      )
-                    ],
-                  ),
+                ImageWidget(
+                  category: '왓챠 TOP 10 영화',
+                  imagePath: 'images/시멘틱에러.jpg',
+                  imagePath2: 'images/스파이더맨.jpg',
+                  imagePath3: 'images/아가씨.jpg',
+                  imagePath4: 'images/메멘토.jpg',
+                  imagePath5: 'images/너의 이름은.jpg',
+                  name: '시멘틱 에러: 더 무비',
+                  name2: '스파이더맨: 뉴 유니',
+                  name3: '아가씨',
+                  name4: '메멘토',
+                  name5: '너의 이름은',
+                  grade: '평균★4.2',
+                  grade2: '평균★4.2',
+                  grade3: '평균★3.8',
+                  grade4: '평균★4.1',
+                  grade5: '평균★4.0',
                 ),
+                ImageWidget(
+                  category: '넷플릭스 영화 순위',
+                  imagePath: 'images/하트 오브 스톤.jpg',
+                  imagePath2: 'images/드림.jpg',
+                  imagePath3: 'images/패러다잇.jpg',
+                  imagePath4: 'images/트리플 엑스 리턴즈.jpg',
+                  imagePath5: 'images/오토라는 남자.jpg',
+                  name: '하트 오브 스톤',
+                  name2: '드림',
+                  name3: '패러다이스',
+                  name4: '트리플 엑스 리턴즈',
+                  name5: '오토라는 남자',
+                  grade: '평균★2.6',
+                  grade2: '평균★2.5',
+                  grade3: '평균★2.8',
+                  grade4: '평균★2.7',
+                  grade5: '평균★3.7',
+                )
               ],
             ),
           ),
