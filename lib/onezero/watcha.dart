@@ -74,7 +74,7 @@ class MyAppState extends State<Watcha> {
                   ),
                   Positioned(
                     bottom: 60,
-                    right: 80,
+                    right: 90,
                     child: OutlinedButton(
                         onPressed: () {
                           Navigator.pushNamed(context, '/ngv');

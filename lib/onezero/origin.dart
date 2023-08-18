@@ -3,6 +3,8 @@ import 'package:toonflix/onezero/navigationbar.dart';
 import 'package:toonflix/onezero/watcha.dart';
 import 'Intro.dart';
 
+import 'package:toonflix/onezero/Grv.dart';
+
 void main() {
   runApp(const origin());
 }
@@ -18,6 +20,7 @@ class origin extends StatelessWidget {
         '/Intro': (context) => const SplashScreen(),
         '/watcha': (context) => const Watcha(),
         '/ngv': (context) => const Ngb(),
+        '/GridView': (context) => const Grv(),
       },
     );
   }

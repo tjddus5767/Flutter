@@ -52,9 +52,25 @@ class ImageWidget extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(
-            category,
-            style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 25),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(
+                category,
+                style:
+                    const TextStyle(fontWeight: FontWeight.bold, fontSize: 25),
+              ),
+              IconButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, '/GridView');
+                },
+                icon: const Icon(
+                  Icons.arrow_forward_ios,
+                  size: 36, // 아이콘 크기 설정
+                  color: Colors.grey, // 아이콘 색상 설정
+                ),
+              )
+            ],
           ),
           SingleChildScrollView(
             scrollDirection: Axis.horizontal,
