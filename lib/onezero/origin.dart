@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:toonflix/onezero/navigationbar.dart';
 import 'package:toonflix/onezero/watcha.dart';
 import 'Intro.dart';
-
-import 'package:toonflix/onezero/Grv.dart';
+import 'watcha grv.dart';
+import 'package:toonflix/onezero/boxoffice%20grv.dart';
+import 'Neflix grv.dart';
 
 void main() {
   runApp(const origin());
@@ -21,6 +22,8 @@ class origin extends StatelessWidget {
         '/watcha': (context) => const Watcha(),
         '/ngv': (context) => const Ngb(),
         '/GridView': (context) => const Grv(),
+        '/watcha grv': (context) => const WatchaGrv(),
+        '/neflix grv': (context) => const NetflixGrv(),
       },
     );
   }

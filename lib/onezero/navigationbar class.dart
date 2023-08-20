@@ -52,25 +52,32 @@ class ImageWidget extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text(
-                category,
-                style:
-                    const TextStyle(fontWeight: FontWeight.bold, fontSize: 25),
-              ),
-              IconButton(
-                onPressed: () {
-                  Navigator.pushNamed(context, '/GridView');
-                },
-                icon: const Icon(
-                  Icons.arrow_forward_ios,
-                  size: 36, // 아이콘 크기 설정
-                  color: Colors.grey, // 아이콘 색상 설정
+          GestureDetector(
+            behavior: HitTestBehavior.translucent, //공백 tap 가능
+            onTap: () {
+              if (category == '왓챠 TOP 10 영화') {
+                Navigator.pushNamed(context, '/watcha grv');
+              } else if (category == '박스오피스 순위') {
+                Navigator.pushNamed(context, '/GridView');
+              } else if (category == '넷플릭스 영화 순위') {
+                Navigator.pushNamed(context, '/neflix grv');
+              }
+            },
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  category,
+                  style: const TextStyle(
+                      fontWeight: FontWeight.bold, fontSize: 25),
                 ),
-              )
-            ],
+                const Icon(
+                  Icons.arrow_forward_ios,
+                  size: 36,
+                  color: Colors.grey,
+                ),
+              ],
+            ),
           ),
           SingleChildScrollView(
             scrollDirection: Axis.horizontal,

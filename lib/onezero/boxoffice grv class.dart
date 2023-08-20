@@ -19,7 +19,11 @@ class ImageWidget2 extends StatelessWidget {
   final String grade3;
   final String grade4;
   final String grade5;
-
+  final String rank;
+  final String rank2;
+  final String rank3;
+  final String rank4;
+  final String rank5;
   const ImageWidget2({
     super.key,
     required this.category,
@@ -40,6 +44,11 @@ class ImageWidget2 extends StatelessWidget {
     required this.grade3,
     required this.grade4,
     required this.grade5,
+    required this.rank,
+    required this.rank2,
+    required this.rank3,
+    required this.rank4,
+    required this.rank5,
   });
 
   @override
@@ -47,7 +56,6 @@ class ImageWidget2 extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.only(
         left: 20,
-        top: 25,
       ),
       child: SingleChildScrollView(
         scrollDirection: Axis.vertical,
@@ -68,21 +76,32 @@ class ImageWidget2 extends StatelessWidget {
                     ),
                     Padding(
                       padding: const EdgeInsets.only(
-                        left: 10,
-                        top: 22,
+                        top: 40,
+                        left: 15,
                       ),
+                      child: Text(
+                        rank,
+                        style: const TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.grey,
+                        ),
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 10, top: 36),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            name3,
+                            name,
                             style: const TextStyle(
                               fontSize: 18,
                               fontWeight: FontWeight.w400,
                             ),
                           ),
                           Text(
-                            grade3,
+                            grade,
                             style: const TextStyle(
                               fontSize: 15,
                             ),
@@ -92,9 +111,7 @@ class ImageWidget2 extends StatelessWidget {
                     ),
                   ],
                 ),
-                const SizedBox(
-                  height: 13,
-                ),
+                Divider(color: Colors.grey.withOpacity(0.7), thickness: 0.8),
                 Row(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -108,21 +125,32 @@ class ImageWidget2 extends StatelessWidget {
                     ),
                     Padding(
                       padding: const EdgeInsets.only(
-                        left: 10,
-                        top: 22,
+                        top: 40,
+                        left: 15,
                       ),
+                      child: Text(
+                        rank2,
+                        style: const TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.grey,
+                        ),
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 10, top: 36),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            name3,
+                            name2,
                             style: const TextStyle(
                               fontSize: 18,
                               fontWeight: FontWeight.w400,
                             ),
                           ),
                           Text(
-                            grade3,
+                            grade2,
                             style: const TextStyle(
                               fontSize: 15,
                             ),
@@ -132,9 +160,7 @@ class ImageWidget2 extends StatelessWidget {
                     ),
                   ],
                 ),
-                const SizedBox(
-                  height: 13,
-                ),
+                Divider(color: Colors.grey.withOpacity(0.7), thickness: 0.8),
                 Row(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -148,9 +174,20 @@ class ImageWidget2 extends StatelessWidget {
                     ),
                     Padding(
                       padding: const EdgeInsets.only(
-                        left: 10,
-                        top: 22,
+                        top: 40,
+                        left: 15,
                       ),
+                      child: Text(
+                        rank3,
+                        style: const TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.grey,
+                        ),
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 10, top: 36),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
@@ -172,9 +209,7 @@ class ImageWidget2 extends StatelessWidget {
                     ),
                   ],
                 ),
-                const SizedBox(
-                  height: 13,
-                ),
+                Divider(color: Colors.grey.withOpacity(0.7), thickness: 0.8),
                 Row(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -188,21 +223,32 @@ class ImageWidget2 extends StatelessWidget {
                     ),
                     Padding(
                       padding: const EdgeInsets.only(
-                        left: 10,
-                        top: 22,
+                        top: 40,
+                        left: 15,
                       ),
+                      child: Text(
+                        rank4,
+                        style: const TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.grey,
+                        ),
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 10, top: 36),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            name3,
+                            name4,
                             style: const TextStyle(
                               fontSize: 18,
                               fontWeight: FontWeight.w400,
                             ),
                           ),
                           Text(
-                            grade3,
+                            grade4,
                             style: const TextStyle(
                               fontSize: 15,
                             ),
@@ -212,9 +258,7 @@ class ImageWidget2 extends StatelessWidget {
                     ),
                   ],
                 ),
-                const SizedBox(
-                  height: 13,
-                ),
+                Divider(color: Colors.grey.withOpacity(0.7), thickness: 0.8),
                 Row(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -228,21 +272,32 @@ class ImageWidget2 extends StatelessWidget {
                     ),
                     Padding(
                       padding: const EdgeInsets.only(
-                        left: 10,
-                        top: 22,
+                        top: 40,
+                        left: 15,
                       ),
+                      child: Text(
+                        rank5,
+                        style: const TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.grey,
+                        ),
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 10, top: 36),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            name3,
+                            name5,
                             style: const TextStyle(
                               fontSize: 18,
                               fontWeight: FontWeight.w400,
                             ),
                           ),
                           Text(
-                            grade3,
+                            grade5,
                             style: const TextStyle(
                               fontSize: 15,
                             ),
@@ -252,6 +307,7 @@ class ImageWidget2 extends StatelessWidget {
                     ),
                   ],
                 ),
+                Divider(color: Colors.grey.withOpacity(0.7), thickness: 0.8),
               ],
             ),
           ],

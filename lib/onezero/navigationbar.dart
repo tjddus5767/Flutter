@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import 'package:toonflix/onezero/navigationbar class.dart';
 
 void main() {
@@ -148,7 +149,10 @@ class NgbState extends State<Ngb> with SingleTickerProviderStateMixin {
                     grade3: '평균★2.8',
                     grade4: '평균★2.7',
                     grade5: '평균★3.7',
-                  )
+                  ),
+                  SizedBox(
+                    height: 50,
+                  ),
                 ],
               ),
             ),
@@ -183,9 +187,9 @@ class NgbState extends State<Ngb> with SingleTickerProviderStateMixin {
               ),
             ),
             Container(
-              color: Colors.orange,
+              color: Colors.red,
               child: const Center(
-                child: Text('웹툰 컨텐츠'),
+                child: Text('책 컨텐츠'),
               ),
             ),
           ],

@@ -34,8 +34,8 @@ class _SplashScreenState extends State<SplashScreen> {
     super.initState();
     Timer(
       const Duration(seconds: 2), // 1초 동안 인트로 화면 표시
-      () =>
-          Navigator.pushReplacementNamed(context, '/watcha'), // Watcha 페이지로 이동
+      () => Navigator.pushReplacementNamed(context,
+          '/watcha'), // Watcha 페이지로 이동 (intro 화면이기 때문에 pushreplacementnamed 사용)
     );
   }
 
