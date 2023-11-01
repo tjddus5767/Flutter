@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'package:toonflix/onezero/navigationbar class.dart';
+import 'package:toonflix/%EC%99%93%EC%B1%A0%ED%94%BC%EB%94%94%EC%95%84%20%ED%81%B4%EB%A1%A0%EC%BD%94%EB%94%A9/navigationbar%20class.dart';
 
 void main() {
   runApp(const Ngb());
@@ -193,60 +193,6 @@ class NgbState extends State<Ngb> with SingleTickerProviderStateMixin {
               ),
             ),
           ],
-        ),
-        bottomNavigationBar: SizedBox(
-          height: 100,
-          child: BottomNavigationBar(
-            type: BottomNavigationBarType.fixed,
-            onTap: (int index) {
-              switch (index) {
-                case 0:
-                  break;
-                case 1:
-                  break;
-                case 2:
-                  break;
-                case 3:
-                  break;
-                case 4:
-                  break;
-                default:
-              }
-            },
-            items: const [
-              BottomNavigationBarItem(
-                  icon: Icon(
-                    Icons.home,
-                    size: 40,
-                  ),
-                  label: '홈'),
-              BottomNavigationBarItem(
-                  icon: Icon(
-                    Icons.search,
-                    size: 40,
-                  ),
-                  label: '검색'),
-              BottomNavigationBarItem(
-                  icon: Icon(
-                    Icons.star,
-                    size: 40,
-                  ),
-                  label: "평가"),
-              BottomNavigationBarItem(
-                  icon: Icon(
-                    Icons.chat,
-                    size: 40,
-                  ),
-                  label: "소식"),
-              BottomNavigationBarItem(
-                  icon: Icon(
-                    Icons.person,
-                    size: 40,
-                  ),
-                  label: "나의 왓챠"),
-            ],
-            selectedItemColor: Colors.black,
-          ),
         ),
       ),
     );

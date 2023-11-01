@@ -77,7 +77,7 @@ class MyAppState extends State<Watcha> {
                     right: 90,
                     child: OutlinedButton(
                         onPressed: () {
-                          Navigator.pushNamed(context, '/ngv');
+                          Navigator.pushNamed(context, '/bottomnavigationbar');
                         },
                         style: OutlinedButton.styleFrom(
                           backgroundColor: Colors.black.withOpacity(0.7),

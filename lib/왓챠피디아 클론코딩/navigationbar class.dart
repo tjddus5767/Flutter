@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:toonflix/%EC%99%93%EC%B1%A0%ED%94%BC%EB%94%94%EC%95%84%20%ED%81%B4%EB%A1%A0%EC%BD%94%EB%94%A9/Netflix%20grv.dart';
+import 'package:toonflix/%EC%99%93%EC%B1%A0%ED%94%BC%EB%94%94%EC%95%84%20%ED%81%B4%EB%A1%A0%EC%BD%94%EB%94%A9/boxoffice%20grv.dart';
+import 'package:toonflix/%EC%99%93%EC%B1%A0%ED%94%BC%EB%94%94%EC%95%84%20%ED%81%B4%EB%A1%A0%EC%BD%94%EB%94%A9/watcha%20grv.dart';
 
 class ImageWidget extends StatelessWidget {
   final String category;
@@ -56,11 +59,16 @@ class ImageWidget extends StatelessWidget {
             behavior: HitTestBehavior.translucent, //공백 tap 가능
             onTap: () {
               if (category == '왓챠 TOP 10 영화') {
-                Navigator.pushNamed(context, '/watcha grv');
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => const WatchaGrv()));
               } else if (category == '박스오피스 순위') {
-                Navigator.pushNamed(context, '/GridView');
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => const Grv()));
               } else if (category == '넷플릭스 영화 순위') {
-                Navigator.pushNamed(context, '/neflix grv');
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const NetflixGrv()));
               }
             },
             child: Row(
