@@ -3,6 +3,7 @@ import 'package:toonflix/chat_app/join.dart';
 import 'Intro_screen.dart';
 import 'main_screen.dart';
 import 'login.dart';
+import 'bottom_navigationbar.dart';
 
 //d
 void main() {

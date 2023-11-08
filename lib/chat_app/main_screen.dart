@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'dart:io';
 
-class Main_Screen extends StatefulWidget {
-  const Main_Screen({super.key});
+class Main_Screen2 extends StatefulWidget {
+  const Main_Screen2({super.key});
 
   @override
-  State<Main_Screen> createState() => _MyWidgetState();
+  State<Main_Screen2> createState() => _MyWidgetState();
 }
 
-class _MyWidgetState extends State<Main_Screen> {
+class _MyWidgetState extends State<Main_Screen2> {
   @override
   XFile? _image; //이미지를 담을 변수 선언
   final ImagePicker picker = ImagePicker(); //ImagePicker 초기화

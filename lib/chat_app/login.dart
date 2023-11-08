@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:toonflix/chat_app/main_screen.dart';
 import 'package:toonflix/chat_app/text_field_join.dart';
+import 'bottom_navigationbar.dart';
 
 void main() {
   runApp(const login());
