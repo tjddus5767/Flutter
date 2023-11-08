@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'dart:io';
-import 'photo.dart';
 
 class Main_Screen extends StatefulWidget {
   const Main_Screen({super.key});
@@ -11,6 +10,7 @@ class Main_Screen extends StatefulWidget {
 }
 
 class _MyWidgetState extends State<Main_Screen> {
+  @override
   XFile? _image; //이미지를 담을 변수 선언
   final ImagePicker picker = ImagePicker(); //ImagePicker 초기화
 
@@ -36,6 +36,7 @@ class _MyWidgetState extends State<Main_Screen> {
         children: [
           Row(
             children: [
+              //여기에 buildPhotoArea와 buildbutton 함수 쓰고 싶음
               Text(
                 '채팅',
                 style: TextStyle(
@@ -92,6 +93,43 @@ class _MyWidgetState extends State<Main_Screen> {
           ),
         ),
       ),
+    );
+  }
+
+  Widget _buildPhotoArea() {
+    //image picker 함수
+    return _image != null
+        ? SizedBox(
+            width: 300,
+            height: 300,
+            child: Image.file(File(_image!.path)), //가져온 이미지를 화면에 띄워주는 코드
+          )
+        : Container(
+            width: 300,
+            height: 300,
+            color: Colors.grey,
+          );
+  }
+
+  Widget _buildButton() {
+    //image picker 함수
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        ElevatedButton(
+          onPressed: () {
+            getImage(ImageSource.camera); //getImage 함수를 호출해서 카메라로 찍은 사진 가져오기
+          },
+          child: const Text("카메라"),
+        ),
+        const SizedBox(width: 30),
+        ElevatedButton(
+          onPressed: () {
+            getImage(ImageSource.gallery); //getImage 함수를 호출해서 갤러리에서 사진 가져오기
+          },
+          child: const Text("갤러리"),
+        ),
+      ],
     );
   }
 }
