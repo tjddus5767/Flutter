@@ -1,3 +1,4 @@
+//회원가입 화면이다
 import 'package:flutter/material.dart';
 import 'package:toonflix/chat_app/login.dart';
 import 'package:toonflix/chat_app/text_field_join.dart';
@@ -37,7 +38,8 @@ class join_state extends State<join> {
                 const Text_Field(labelText: '이름을 입력하세요.', hintText: '이름'),
                 const Text_Field(
                     labelText: '휴대폰 번호를 입력하세요.', hintText: '휴대폰 번호'),
-                const Text_Field(labelText: '아이디를 입력하세요.', hintText: '아이디'),
+                const Text_Field(
+                    labelText: 'E-mail 입력하세요.', hintText: 'E-mail'),
                 const Text_Field(labelText: '비밀번호를 입력하세요.', hintText: '비밀번호'),
                 const Text_Field(labelText: '비밀번호를 재입력하세요.', hintText: '비밀번호'),
                 const SizedBox(

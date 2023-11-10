@@ -1,7 +1,7 @@
+//이 파일에서 처음 앱이 시작되며 각 routes를 설정
 import 'package:flutter/material.dart';
 import 'package:toonflix/chat_app/join.dart';
 import 'Intro_screen.dart';
-import 'main_screen.dart';
 import 'login.dart';
 import 'bottom_navigationbar.dart';
 

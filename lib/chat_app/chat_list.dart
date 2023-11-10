@@ -1,3 +1,4 @@
+//채팅 목록을 띄우는 파일이다.
 import 'package:flutter/material.dart';
 
 class main_second extends StatefulWidget {

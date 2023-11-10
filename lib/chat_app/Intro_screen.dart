@@ -1,3 +1,4 @@
+//인트로 화면에 대한 파일이다
 import 'dart:async';
 
 import 'package:flutter/material.dart';

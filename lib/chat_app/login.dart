@@ -1,5 +1,6 @@
+//로그인 창 화면이다
 import 'package:flutter/material.dart';
-import 'package:toonflix/chat_app/main_screen.dart';
+
 import 'package:toonflix/chat_app/text_field_join.dart';
 import 'bottom_navigationbar.dart';
 
@@ -42,7 +43,7 @@ class login_state extends State<login> {
               ),
             ),
             const SizedBox(height: 40),
-            const Text_Field(labelText: '아이디를 입력하세요.', hintText: '아이디'),
+            const Text_Field(labelText: 'E-mail을 입력하세요.', hintText: 'E-mail'),
             const Text_Field(labelText: '비밀번호를 입력하세요.', hintText: '비밀번호'),
             const SizedBox(
               height: 50,

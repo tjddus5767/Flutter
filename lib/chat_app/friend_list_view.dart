@@ -58,6 +58,7 @@ class Friend_list extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
+        backgroundColor: Colors.black,
         body: ListView.separated(
           itemCount: users.length,
           itemBuilder: (context, index) {
@@ -66,19 +67,28 @@ class Friend_list extends StatelessWidget {
                   radius: 25,
                   backgroundImage: AssetImage('images/Ralo.png'),
                 ),
-                title: Text(users[index].name),
-                subtitle: Text(users[index].phone),
-                trailing: const Icon(Icons.more_vert),
-                onTap: () {
-                  launchUrl(
-                    Uri.parse('https://www.youtube.com/@RALO24'),
-                  );
-                });
+                title: Text(
+                  users[index].name,
+                  style: const TextStyle(
+                    color: Colors.white,
+                  ),
+                ),
+                subtitle: Text(
+                  users[index].phone,
+                  style: const TextStyle(
+                    color: Colors.white,
+                  ),
+                ),
+                trailing: const Icon(
+                  Icons.more_vert,
+                  color: Colors.white,
+                ),
+                onTap: () {});
           },
           separatorBuilder: (context, index) {
             return const Divider(
               height: 4,
-              color: Colors.black,
+              color: Colors.white,
             );
           },
         ),

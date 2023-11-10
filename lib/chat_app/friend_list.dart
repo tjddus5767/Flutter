@@ -1,8 +1,10 @@
+//로그인을 한 뒤 나오는 처음 화면 파일이다 친구 목록을 띄우는 메인 화면이라고 생각하면 된다.
 import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
-import 'friend.dart';
+import 'package:toonflix/chat_app/friend_add.dart';
+import 'friend_list_view.dart';
 
 void main() {
   runApp(const main_first());
@@ -36,6 +38,7 @@ class main_firstState extends State<main_first> {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
+        backgroundColor: Colors.black,
         body: Padding(
           padding: const EdgeInsets.only(
             left: 20,
@@ -44,12 +47,34 @@ class main_firstState extends State<main_first> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const Text(
-                '친구',
-                style: TextStyle(
-                    color: Colors.black,
-                    fontSize: 30,
-                    fontWeight: FontWeight.bold),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  const Text(
+                    '친구',
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 30,
+                        fontWeight: FontWeight.bold),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(right: 15.0),
+                    child: IconButton(
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const Friend_Add(),
+                            ),
+                          );
+                        },
+                        icon: const Icon(
+                          Icons.person_add_alt_1,
+                          size: 40,
+                          color: Colors.white,
+                        )),
+                  )
+                ],
               ),
               const SizedBox(height: 10, width: double.infinity),
               Row(
@@ -60,7 +85,10 @@ class main_firstState extends State<main_first> {
                   ),
                   const Text(
                     '김성연',
-                    style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
+                    style: TextStyle(
+                        fontSize: 25,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white),
                   )
                 ],
               ),

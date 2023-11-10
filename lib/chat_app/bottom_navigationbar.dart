@@ -1,8 +1,8 @@
+//bottomnavigationbar에 대한 파일이다
 import 'package:flutter/material.dart';
-import 'package:image_picker/image_picker.dart';
-import 'dart:io';
-import 'main_first.dart';
-import 'main_second.dart';
+
+import 'friend_list.dart';
+import 'chat_list.dart';
 
 class Main_Screen extends StatefulWidget {
   const Main_Screen({super.key});
@@ -12,7 +12,6 @@ class Main_Screen extends StatefulWidget {
 }
 
 class _MyWidgetState extends State<Main_Screen> {
-  @override
   int _selectedIndex = 0;
 
   final List<Widget> _widgetOptions = [
@@ -34,28 +33,39 @@ class _MyWidgetState extends State<Main_Screen> {
         useMaterial3: true,
       ),
       home: Scaffold(
+        resizeToAvoidBottomInset: false,
         body: _widgetOptions.elementAt(_selectedIndex),
         bottomNavigationBar: SizedBox(
-          height: (MediaQuery.sizeOf(context)).height / 8,
-          child: BottomNavigationBar(
-            items: const <BottomNavigationBarItem>[
-              BottomNavigationBarItem(
-                icon: Icon(
-                  Icons.person,
-                  size: 50,
+          height: (MediaQuery.sizeOf(context)).height / 10,
+          child: SingleChildScrollView(
+            child: BottomNavigationBar(
+              backgroundColor: Colors.black,
+              items: const <BottomNavigationBarItem>[
+                BottomNavigationBarItem(
+                  icon: Icon(
+                    Icons.person,
+                    color: Colors.white,
+                    size: 50,
+                  ),
+                  label: 'Person',
                 ),
-                label: 'Person',
+                BottomNavigationBarItem(
+                  icon: Icon(
+                    Icons.chat,
+                    size: 50,
+                    color: Colors.white,
+                  ),
+                  label: 'Chat',
+                ),
+              ],
+              currentIndex: _selectedIndex,
+              selectedItemColor: Colors.white,
+              selectedLabelStyle: const TextStyle(
+                fontSize: 17,
+                fontWeight: FontWeight.bold,
               ),
-              BottomNavigationBarItem(
-                icon: Icon(Icons.chat, size: 50),
-                label: 'Chat',
-              ),
-            ],
-            currentIndex: _selectedIndex,
-            selectedItemColor: Colors.black,
-            selectedLabelStyle:
-                const TextStyle(fontSize: 17, fontWeight: FontWeight.bold),
-            onTap: _onItemTapped,
+              onTap: _onItemTapped,
+            ),
           ),
         ),
       ),
