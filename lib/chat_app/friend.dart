@@ -7,6 +7,7 @@ class User {
   User(this.name, this.phone);
 }
 
+///친구 창에서 친구 목록을 만드는 클래스이다
 class Friend_list extends StatelessWidget {
   Friend_list({super.key});
   List<User> users = [

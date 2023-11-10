@@ -36,7 +36,7 @@ class _MyWidgetState extends State<Main_Screen> {
       home: Scaffold(
         body: _widgetOptions.elementAt(_selectedIndex),
         bottomNavigationBar: SizedBox(
-          height: 100,
+          height: (MediaQuery.sizeOf(context)).height / 8,
           child: BottomNavigationBar(
             items: const <BottomNavigationBarItem>[
               BottomNavigationBarItem(
